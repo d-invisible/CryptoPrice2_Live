@@ -26,12 +26,15 @@ const explore = async (name,num)=>{
         price.innerText = `₹ ${formatNumber(main.inr)}`;
 
         const change  = document.querySelector(`#item${num} .change p`);
+        const changebg  = document.querySelector(`#item${num} .change`);
         change.innerText = formatNumber(main.inr_24h_change);
 
         if(formatNumber(main.inr_24h_change)<0){
             change.style.color='red' ;
+            changebg.style.background = 'linear-gradient(to right, rgba(255,123,123,0.5),rgba(0, 0, 0, 0))';
         }else{
             change.style.color='green' ;
+            changebg.style.background = 'linear-gradient(to right, rgba(55, 255, 132,0.5),rgba(0, 0, 0, 0))';
         }
 
         const vol  = document.querySelector(`#item${num} .vol p`);
@@ -63,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     explore("ripple",4);
     explore("tether",5);
     explore("dogecoin",6);
+    
 });
 
 
